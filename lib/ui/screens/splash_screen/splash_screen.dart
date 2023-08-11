@@ -1,3 +1,4 @@
+import 'package:challenge_two/ui/screens/splash_screen/splash_pages/first_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,18 +13,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        children: [],
+        children: const [
+          FirstSplashPage(),
+        ],
       ),
-//       body: Container(
-//     width: 655,
-//     height: 984,
-//     decoration: BoxDecoration(
-//       image: DecorationImage(
-//           image: AssetImage('lib/assets/images/splash_1.png'),
-//           fit: BoxFit.fill,
-//       ),
-//     ),
-// ),
     );
   }
 }
