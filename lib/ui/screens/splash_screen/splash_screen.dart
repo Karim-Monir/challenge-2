@@ -14,12 +14,20 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final PageController _controller = PageController();
+  bool isLastPage = false;
+  bool isSecondPage = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           PageView(
+            onPageChanged: (index) {
+              setState(() {
+                isLastPage = (index == 3);
+                isSecondPage = (index > 0);
+              });
+            },
             controller: _controller,
             children: const [
               FirstSplashPage(),
@@ -31,17 +39,46 @@ class _SplashScreenState extends State<SplashScreen> {
           Positioned(
             top: 60,
             right: 17,
-            child: TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Next',
-                style: TextStyle(
-                  color: Color(0xFF6CC51D),
-                  fontSize: 15,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
+            left: 17,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                isSecondPage
+                    ? TextButton(
+                        onPressed: () {
+                          _controller.previousPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.bounceOut);
+                        },
+                        child: const Text(
+                          'Back',
+                          style: TextStyle(
+                            color: Color(0xFF797171),
+                            fontSize: 15,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+                TextButton(
+                  onPressed: () {
+                    _controller.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.bounceIn);
+                  },
+                  child: const Text(
+                    'Next',
+                    style: TextStyle(
+                      color: Color(0xFF6CC51D),
+                      fontSize: 15,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
           Positioned(
