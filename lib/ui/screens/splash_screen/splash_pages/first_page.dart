@@ -52,14 +52,14 @@ class _FirstSplashPageState extends State<FirstSplashPage> {
               ),
             ),
           )),
-      Positioned(
+      const Positioned(
           top: 203,
           right: 47,
           left: 47,
-          child: Container(
+          child: SizedBox(
             width: 322,
             height: 46,
-            child: const Text(
+            child: Text(
               'Lorem ipsum dolor sit amet, consetetur\nsadipscing elitr, sed diam nonumy',
               textAlign: TextAlign.center,
               style: TextStyle(
