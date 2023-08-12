@@ -10,6 +10,15 @@ class ThirdSplashPage extends StatefulWidget {
 class _ThirdSplashPageState extends State<ThirdSplashPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+    width: 430,
+    height: 932,
+    decoration: const BoxDecoration(
+      image: DecorationImage(
+          image: AssetImage('lib/assets/images/splash_3.png'),
+          fit: BoxFit.fill,
+      ),
+    ),
+);
   }
 }

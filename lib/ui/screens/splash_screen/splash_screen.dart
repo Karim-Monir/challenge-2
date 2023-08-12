@@ -28,30 +28,37 @@ class _SplashScreenState extends State<SplashScreen> {
               ForthSplashPage(),
             ],
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text(
-              'Next',
-              style: TextStyle(
-                color: Color(0xFF6CC51D),
-                fontSize: 15,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
+          Positioned(
+            top: 60,
+            right: 17,
+            child: TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Next',
+                style: TextStyle(
+                  color: Color(0xFF6CC51D),
+                  fontSize: 15,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
-          Container(
-              alignment: const Alignment(0.0, 0.75),
-              child: SmoothPageIndicator(
-                  controller: _controller,
-                  count: 4,
-                  effect: const JumpingDotEffect(
-                    dotColor: Color(0xFF797171),
-                    activeDotColor: Color(0xFF6CC51D),
-                    dotHeight: 8.0,
-                    dotWidth: 8.0,
-                    spacing: 4.0,
-                  )))
+          Positioned(
+            bottom: 148,
+            left: 183,
+            right: 183,
+            child: SmoothPageIndicator(
+                controller: _controller,
+                count: 4,
+                effect: const JumpingDotEffect(
+                  dotColor: Color(0xFF797171),
+                  activeDotColor: Color(0xFF6CC51D),
+                  dotHeight: 8.0,
+                  dotWidth: 8.0,
+                  spacing: 4.0,
+                )),
+          )
         ],
       ),
     );

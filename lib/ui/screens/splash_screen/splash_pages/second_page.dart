@@ -10,6 +10,19 @@ class SecondSplashPage extends StatefulWidget {
 class _SecondSplashPageState extends State<SecondSplashPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Stack(
+      children: [
+        Container(
+    width: 430,
+    height: 932,
+    decoration: const BoxDecoration(
+      image: DecorationImage(
+          image: AssetImage('lib/assets/images/splash_2.png'),
+          fit: BoxFit.fill,
+      ),
+    ),
+),
+      ],
+    );
   }
 }
