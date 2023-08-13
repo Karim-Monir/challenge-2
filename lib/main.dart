@@ -1,4 +1,5 @@
-import 'package:challenge_two/ui/screens/login.dart';
+import 'package:challenge_two/ui/screens/login_screens/login_1.dart';
+import 'package:challenge_two/ui/screens/login_screens/login_screen.dart';
 import 'package:challenge_two/ui/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }

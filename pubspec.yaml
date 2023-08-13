@@ -80,6 +80,10 @@ flutter:
     - family: Poppins
       fonts:
         - asset: lib/assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: lib/assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: lib/assets/fonts/Poppins/Poppins-Medium.ttf
+        - asset: lib/assets/fonts/Poppins/Poppins-SemiBold.ttf
+        - asset: lib/assets/fonts/Poppins/Poppins-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
