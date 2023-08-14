@@ -116,59 +116,67 @@ class _FirstLoginState extends State<FirstLogin> {
                   const SizedBox(
                     height: 12,
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(right: 118),
-                    // padding: const EdgeInsets.fromLTRB(33, 17, 0, 17),
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
-                    decoration: ShapeDecoration(
-                      shadows: const [
-                        BoxShadow(
-                            color: Color(0xFFC8E5B5),
-                            blurRadius: 5,
-                            spreadRadius: 3,
-                            offset: Offset(0, 5))
-                      ],
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF9FD86D),
-                          Color(0xFF5DBE19),
+                  GestureDetector(
+                    onTap: () {
+                      widget.pageController.animateToPage(2,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(right: 118),
+                      // padding: const EdgeInsets.fromLTRB(33, 17, 0, 17),
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      decoration: ShapeDecoration(
+                        shadows: const [
+                          BoxShadow(
+                              color: Color(0xFFC8E5B5),
+                              blurRadius: 5,
+                              spreadRadius: 3,
+                              offset: Offset(0, 5))
                         ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFF9FD86D),
+                            Color(0xFF5DBE19),
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)),
                       ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 26,
-                          width: 26,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('lib/assets/images/Vector.png'),
-                              fit: BoxFit.fill,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 26,
+                            width: 26,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage('lib/assets/images/Vector.png'),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 61,
-                        ),
-                        const Center(
-                          child: Text(
-                            'Create an account',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                            ),
+                          const SizedBox(
+                            width: 61,
                           ),
-                        )
-                      ],
+                          const Center(
+                            child: Text(
+                              'Create an account',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(
