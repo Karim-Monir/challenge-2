@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         onPressed: () {
                           _controller.previousPage(
                               duration: const Duration(milliseconds: 300),
-                              curve: Curves.bounceOut);
+                              curve: Curves.easeInBack);
                         },
                         child: const Text(
                           'Back',
@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     }
                     _controller.nextPage(
                         duration: const Duration(milliseconds: 300),
-                        curve: Curves.bounceIn);
+                        curve: Curves.easeIn);
                   },
                   child: const Text(
                     'Next',

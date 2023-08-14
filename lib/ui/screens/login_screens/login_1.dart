@@ -1,7 +1,9 @@
+import 'package:challenge_two/ui/screens/login_screens/login_2.dart';
 import 'package:flutter/material.dart';
 
 class FirstLogin extends StatefulWidget {
-  const FirstLogin({super.key});
+  final PageController pageController;
+  const FirstLogin({super.key, required this.pageController});
 
   @override
   State<FirstLogin> createState() => _FirstLoginState();
@@ -23,26 +25,11 @@ class _FirstLoginState extends State<FirstLogin> {
               ),
             ),
           ),
-          const Positioned(
-              top: 63,
-              left: 163,
-              right: 161,
-              child: Text(
-                'Welcome',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.54,
-                ),
-              )),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               //alignment: AlignmentDirectional.bottomCenter,
-              padding: EdgeInsets.fromLTRB(16, 31, 16, 16),
+              padding: const EdgeInsets.fromLTRB(16, 31, 16, 16),
               //margin: EdgeInsets.fromLTRB(16, 31, 16, 16),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.425,
@@ -85,6 +72,7 @@ class _FirstLoginState extends State<FirstLogin> {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
+                      padding: const EdgeInsets.only(right: 109),
                       width: MediaQuery.of(context).size.width,
                       height: 60,
                       decoration: ShapeDecoration(
@@ -93,18 +81,34 @@ class _FirstLoginState extends State<FirstLogin> {
                             borderRadius: BorderRadius.circular(5)),
                       ),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          
-                          Text(
-                            'Continue with google',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
+                          Container(
+                            height: 22,
+                            width: 22,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage('lib/assets/images/google.png'),
+                                fit: BoxFit.fill,
+                              ),
                             ),
-                          ) 
+                          ),
+                          const SizedBox(
+                            width: 55,
+                          ),
+                          const Center(
+                            child: Text(
+                              'Continue with google',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -113,21 +117,67 @@ class _FirstLoginState extends State<FirstLogin> {
                     height: 12,
                   ),
                   Container(
+                    padding: const EdgeInsets.only(right: 118),
+                    // padding: const EdgeInsets.fromLTRB(33, 17, 0, 17),
                     width: MediaQuery.of(context).size.width,
                     height: 60,
                     decoration: ShapeDecoration(
-                      color: Colors.red,
+                      shadows: const [
+                        BoxShadow(
+                            color: Color(0xFFC8E5B5),
+                            blurRadius: 5,
+                            spreadRadius: 3,
+                            offset: Offset(0, 5))
+                      ],
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color(0xFF9FD86D),
+                          Color(0xFF5DBE19),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                     ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 26,
+                          width: 26,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('lib/assets/images/Vector.png'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 61,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Create an account',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Already have an account ?',
                         style: TextStyle(
                           color: Color(0xFF868889),
@@ -138,8 +188,12 @@ class _FirstLoginState extends State<FirstLogin> {
                         ),
                       ),
                       TextButton(
-                          onPressed: () {},
-                          child: Text(
+                          onPressed: () {
+                            widget.pageController.nextPage(
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeIn);
+                          },
+                          child: const Text(
                             'Login',
                             style: TextStyle(
                               color: Colors.black,
